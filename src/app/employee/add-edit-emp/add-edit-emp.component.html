@@ -1,0 +1,38 @@
+<div class="bd-highlight mb-3">
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Employee Name</label>
+        <div class="col-sm-10 mb-3">
+            <input type="text" class="form-control" [(ngModel)]="emp.name" placeholder="Enter Employee Name">
+        </div>
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10 mb-3">
+            <input type="email" class="form-control" [(ngModel)]="emp.email" placeholder="Enter Email">
+        </div>
+        <label class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10 mb-3">
+            <input type="text" class="form-control" [(ngModel)]="emp.phone" placeholder="Enter Phone">
+        </div>
+        <label class="col-sm-2 col-form-label">Salary</label>
+        <div class="col-sm-10 mb-3">
+            <input type="number" class="form-control" [(ngModel)]="emp.salary" placeholder="Enter Salary">
+        </div>
+        <label class="col-sm-2 col-form-label">Hire Date</label>
+        <div class="col-sm-10 mb-3">
+            <input type="date" [(ngModel)]="emp.hire_date">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Position</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="job_position">
+                <option value="">--Select--</option>
+                <option *ngFor="let position of PositionsList" [ngValue]="position.id">
+                    {{position.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+<button (click)="addEmployee()" *ngIf="emp.id==0" class="btn btn-primary">Add</button>
+<button (click)="updateEmployee()" *ngIf="emp.id!=0" class="btn btn-primary">Update</button>
